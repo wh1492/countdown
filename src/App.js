@@ -34,7 +34,7 @@ function App() {
       clearInterval(time);
     }
     inputReference.current.focus();
-  }, [seconds, started]);
+  }, [seconds, started, time]);
 
   function countDown() {
     setTime(
