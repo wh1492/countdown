@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+body,
+html {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Open Sans", sans-serif, monospace;
+  font-size: 100%;
+  color: #171717;
+}
+
+.App {
+  border: 1px solid red;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+
+  background: linear-gradient(229deg, #00fbba, #00fbba);
+}
+
+.color-bg {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    229deg,
+    #00fbba,
+    #9c00f3,
+    #f300ea,
+    #edf300,
+    #00fbba
+  );
+  background-size: 1000% 1000%;
+  background-position: 0% 92%;
+  opacity: 0;
+  transition: opacity 0.95s ease;
+  &.active {
+    opacity: 1;
+    -webkit-animation: AnimationName 21s ease infinite;
+    -moz-animation: AnimationName 21s ease infinite;
+    -o-animation: AnimationName 21s ease infinite;
+    animation: AnimationName 21s ease infinite;
+  }
+}
+
+.btn-group {
+  margin-top: 1.2rem;
+  margin-bottom: 1rem;
+  padding: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  margin: 0.35rem 1.25rem;
+  padding: 0.65rem 0.65rem;
+  font-size: 1.4rem;
+  border-radius: 0.5rem;
+  min-width: 10rem;
+  color: #fff;
+  text-shadow: 0.05rem 0.15rem 0.25rem rgb(0, 0, 0, 0.35);
+  box-shadow: 0.15rem 0.15rem 0.45rem rgba(0, 0, 0, 0.15);
+  transition: all 0.65s ease;
+  &:hover {
+    box-shadow: 0.2rem 0.25rem 0.45rem rgba(0, 0, 0, 0.25);
+  }
+
+  &-start {
+    border: 0.1rem solid darken(#00fbba, 4%);
+    background-color: #00fbba;
+    &:hover {
+      border: 0.1rem solid#00fbba;
+      background-color: lighten(#00fbba, 4%);
+    }
+  }
+  &-pause {
+    border: 0.1rem solid darken(#f30069, 4%);
+    background-color: #f30069;
+    &:hover {
+     border: 0.1rem solid #f30069;
+      background-color: lighten(#f30069, 4%);
+    }
+  }
+  &-reset {
+    border: 0.1rem solid darken(#c576ef, 4%);
+    background-color: #c576ef;
+    &:hover {
+     border: 0.1rem solid #c576ef;
+      background-color: lighten(#c576ef, 4%);
+    }
+  }
+}
+
+.text-block {
+  background: #fff;
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 80%;
+  padding: 2rem 2.4rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.45rem 0.45rem 1.25rem rgba(0, 0, 0, 0.35);
+
+  &_heading {
+    font-family: "Montserrat";
+    font-size: 1.2rem;
+
+    h3,
+    h4 {
+      padding-bottom: 0;
+      margin-block-end: 0;
+      padding: 0;
+      margin: 0;
+      line-height: 1;
+    }
+    h3 {
+      font-size: 4rem;
+    }
+    h4 {
+      font-size: 2rem;
+    }
+  }
+
+  input[type="number"] {
+    font-family: "Montserrat";
+    font-size: 4rem;
+    padding: 0;
+    border-radius: 0.5rem;
+    text-align: center;
+
+    width: 100%;
+    border: none;
+    outline: none;
+    &:disabled {
+      color: lighten(#171717, 15%);
+    }
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 92%;
+  }
+  50% {
+    background-position: 100% 9%;
+  }
+  100% {
+    background-position: 0% 92%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 92%;
+  }
+  50% {
+    background-position: 100% 9%;
+  }
+  100% {
+    background-position: 0% 92%;
+  }
+}
+@-o-keyframes AnimationName {
+  0% {
+    background-position: 0% 92%;
+  }
+  50% {
+    background-position: 100% 9%;
+  }
+  100% {
+    background-position: 0% 92%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 92%;
+  }
+  50% {
+    background-position: 100% 9%;
+  }
+  100% {
+    background-position: 0% 92%;
+  }
+}

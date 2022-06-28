@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+import { useEffect, useState, useRef } from "react";
+import "./App.scss";
 
 function App() {
   const [seconds, setSeconds] = useState(0);
   const [started, setStarted] = useState(false);
   const [time, setTime] = useState(0);
+  const inputReference = useRef(null);
 
   function changeTime(e) {
     setSeconds(+e.target.value);
@@ -17,22 +18,23 @@ function App() {
 
   function pauseCountdown() {
     setStarted(false);
+    inputReference.current.focus();
     clearInterval(time);
   }
 
   function resetCountdown() {
     setSeconds(0);
-  //  clearInterval(time);
+    inputReference.current.focus();
+    //  clearInterval(time);
   }
 
   useEffect(() => {
-    console.log("cambio seconds:", seconds);
     if (seconds <= 0) {
-      console.log("finalizar");
       setStarted(false);
       clearInterval(time);
     }
-  }, [seconds]);
+    inputReference.current.focus();
+  }, [seconds, started]);
 
   function countDown() {
     setTime(
@@ -43,22 +45,29 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div>
-        <div>Time: {seconds}</div>
+    <div className={`App `}>
+      <div className={`color-bg ${started ? "active" : ""}`}></div>
+      <div className="text-block">
+        <header className="text-block_heading">
+          <h4>Time left: </h4>
+          {/* {started && <h3> {seconds}</h3>} */}
+          <input
+            className="h3"
+            onChange={changeTime}
+            type="number"
+            name="seconds"
+            ref={inputReference}
+            value={seconds}
+            disabled={started ? "disabled" : ""}
+          />
+        </header>
 
-        <input
-          onChange={changeTime}
-          type="number"
-          name="seconds"
-          value={seconds}
-          disabled={started ? "disabled" : ""}
-        />
-        <div>
+        <div className="btn-group">
           <button
             onClick={startCountdown}
             style={{ display: started ? "none" : "inline-block" }}
             type="button"
+            className="btn btn-start"
           >
             Start{" "}
           </button>
@@ -66,6 +75,7 @@ function App() {
             onClick={pauseCountdown}
             style={{ display: started ? "inline-block" : "none" }}
             type="button"
+            className="btn btn-pause"
           >
             Pause
           </button>
@@ -73,6 +83,7 @@ function App() {
             onClick={resetCountdown}
             style={{ display: started ? "none" : "inline-block" }}
             type="button"
+            className="btn btn-reset"
           >
             Reset{" "}
           </button>
