@@ -49,6 +49,11 @@ function App() {
       clearInterval(time);
     }
     inputSeconds.current.focus();
+    if(seconds > 0) {
+      document.title= `There's only ${seconds} left`
+    } else {
+      document.title= "Set a timer in the box"
+    }
   }, [seconds, started, time]);
 
   function countDown() {
@@ -79,7 +84,7 @@ function App() {
         </header>
 
         <div className="btn-group">
-          
+
           {!started && (
             <button
               onClick={startCountdown}
