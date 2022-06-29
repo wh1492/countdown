@@ -78,10 +78,23 @@ html {
   &:hover {
     box-shadow: 0.2rem 0.25rem 0.45rem rgba(0, 0, 0, 0.25);
   }
+  &:disabled {
+    opacity: 0.45;
+    text-shadow: 0.05rem 0.15rem 0.25rem rgb(0, 0, 0, 0.35);
+    box-shadow: 0.15rem 0.15rem 0.45rem rgba(0, 0, 0, 0.15);
+    cursor: not-allowed;
+  }
 
   &-start {
     border: 0.1rem solid darken(#00fbba, 4%);
     background-color: #00fbba;
+    // &:disabled {
+    //   background-color: darken(#00fbba, 5%);
+    //   &:hover {
+    //     border: 0.1rem solid darken(#00fbba, 4%);
+    //     background-color: darken(#00fbba, 5%);
+    //   }
+    // }
     &:hover {
       border: 0.1rem solid#00fbba;
       background-color: lighten(#00fbba, 4%);
@@ -91,7 +104,7 @@ html {
     border: 0.1rem solid darken(#f30069, 4%);
     background-color: #f30069;
     &:hover {
-     border: 0.1rem solid #f30069;
+      border: 0.1rem solid #f30069;
       background-color: lighten(#f30069, 4%);
     }
   }
@@ -99,7 +112,7 @@ html {
     border: 0.1rem solid darken(#c576ef, 4%);
     background-color: #c576ef;
     &:hover {
-     border: 0.1rem solid #c576ef;
+      border: 0.1rem solid #c576ef;
       background-color: lighten(#c576ef, 4%);
     }
   }
@@ -143,8 +156,11 @@ html {
     text-align: center;
 
     width: 100%;
+    max-width: 14rem;
     border: none;
     outline: none;
+    display: block;
+    margin: 0 auto;
     &:disabled {
       color: lighten(#171717, 15%);
     }
